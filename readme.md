@@ -16,3 +16,6 @@ or
 3. Run `pip install -r requirements.txt`
 5. Run the migrations `python manage.py migrate`
 7. Meanwhile run the Django server using `python manage.py runserver`
+
+### Summary
+Completed all the tasks except one bonus task of discounting rules by admin.
