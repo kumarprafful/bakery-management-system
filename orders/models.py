@@ -1,6 +1,6 @@
+from core.models import TimeStampedMixin
 from django.db import models
 from django.db.models import Sum
-from core.models import TimeStampedMixin
 
 
 class OrderItem(TimeStampedMixin):
@@ -9,6 +9,8 @@ class OrderItem(TimeStampedMixin):
     quantity = models.IntegerField(default=0)
     cost = models.FloatField(default=0)
 
+    def __str__(self):
+        return f'{str(order)} - {str(product)}'
 
 class Order(TimeStampedMixin):
     customer = models.ForeignKey("accounts.User", on_delete=models.CASCADE)
@@ -25,3 +27,4 @@ class Order(TimeStampedMixin):
         order_items = self.order_items
         self.total_bill = order_items.aggregate(Sum('cost')).get('cost__sum')
         self.save()
+        

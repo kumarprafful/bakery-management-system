@@ -24,7 +24,7 @@ class OrderView(APIView):
                 serializer.save()
             else:
                 return Response({'status': 'error', 'message': serializer.errors}, status=400)
-            return Response({'status': 'success'}, status=200)
+            return Response({'status': 'success', 'data': serializer.data}, status=200)
         except Exception as e:
             return Response({'status': 'error', 'errors': str(e)}, status=400)
             

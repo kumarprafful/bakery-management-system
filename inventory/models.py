@@ -8,7 +8,7 @@ class Ingredient(TimeStampedMixin):
         ('L', 'Liter'),
     )
     
-    ingredient_name = models.CharField(max_length=255) #we can also have this unique to track smoothly
+    ingredient_name = models.CharField(max_length=255, unique=True) #we can also have this unique to track smoothly
     initial_quantity = models.FloatField(default=0)
     quantity_left = models.FloatField(default=0)
     metric_unit = models.CharField(choices=METRIC_UNIT_CHOICES, max_length=5, default='kg')
@@ -48,7 +48,7 @@ class IngredientUsed(TimeStampedMixin):
     
 
 class Product(TimeStampedMixin):
-    product_name = models.CharField(max_length=255) #we can also have this unique to track smoothly
+    product_name = models.CharField(max_length=255, unique=True) #we can also have this unique to track smoothly
     quantity = models.IntegerField(default=0)
     cost_per_unit = models.FloatField(default=0)
     units_sold = models.IntegerField(default=0)

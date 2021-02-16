@@ -1,0 +1,575 @@
+{
+	"info": {
+		"_postman_id": "c6ca1338-8632-438e-8598-cc84f24796d4",
+		"name": "zenatix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"rishi.sahani@highbeamglobal.com\",\"password\":\"G%BTq^9P*!@4\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/accounts/register/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"rishi.sahani@highbeamglobal.com\",\"password\":\"G%BTq^9P*!@4\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/accounts/login/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ingredient  add POST ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ingredient_name\": \"sugar\",\n    \"initial_quantity\": 1000,\n    \"metric_unit\": \"KG\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/ingredient/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"ingredient",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ingredient  fetch GET",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/ingredient/?ingredient_id=1",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"ingredient",
+						""
+					],
+					"query": [
+						{
+							"key": "ingredient_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ingredient  DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/ingredient/?ingredient_id=1",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"ingredient",
+						""
+					],
+					"query": [
+						{
+							"key": "ingredient_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ingredient  update PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ingredient_id\": 2,\n    \"quantity\": 200.07\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/ingredient/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"ingredient",
+						""
+					],
+					"query": [
+						{
+							"key": "ingredient_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product  create POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_name\": \"muffin\",\n    \"quantity\": 20,\n    \"cost_per_unit\": 20,\n    \"ingredient_used\": [\n        {\n            \"ingredient\": 8,\n            \"quantity_used\": 10.5\n        },\n        {\n            \"ingredient\": 9,\n            \"quantity_used\": 25.5\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/product/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"product",
+						""
+					],
+					"query": [
+						{
+							"key": "ingredient_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product  GET",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/product/?product_id=41",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"product",
+						""
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "41"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product  DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/product/?product_id=40",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"product",
+						""
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "40"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product  PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 41,\n    \"product_name\": \"mufffin\",\n    \"quantity\": 20,\n    \"cost_per_unit\": 20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/product/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"product",
+						""
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "40",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product-list GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 916d8144e8485e9e258c6bf9d8a767d5c02ccd21",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 41,\n    \"product_name\": \"mufffin\",\n    \"quantity\": 20,\n    \"cost_per_unit\": 20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/product-list/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"product-list",
+						""
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "40",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 94ad3285c9167d18421bc6b0ec54044dcc0816bf",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order_items\": [\n        {\n            \"product\": 39,\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/orders/order/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"orders",
+						"order",
+						""
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "40",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order history GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 94ad3285c9167d18421bc6b0ec54044dcc0816bf",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order_items\": [\n        {\n            \"product\": 39,\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/orders/order-history/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"orders",
+						"order-history",
+						""
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "40",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hot selling products GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 94ad3285c9167d18421bc6b0ec54044dcc0816bf",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order_items\": [\n        {\n            \"product\": 39,\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/inventory/hot-selling-products/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"inventory",
+						"hot-selling-products",
+						""
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "40",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
